@@ -1,197 +1,87 @@
-:root{
+:root {
   --bg:#0e0f12;
   --panel:#13151a;
   --muted:#8b93a7;
   --text:#e8ebf5;
-  --accent:#46c477; /* green banner vibe */
-  --primary:#e9839d; /* brand pink from your app */
+  --accent:#46c477;
+  --primary:#e9839d;
   --ring:rgba(233,131,157,0.35);
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
+* { box-sizing:border-box; }
+body {
   margin:0;
   font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
   color:var(--text);
   background:radial-gradient(1200px 600px at 20% 0%, #14171d, #0e0f12);
 }
 
-.container{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 24px;
-}
+/* Container */
+.container { width:100%; max-width:1100px; margin:0 auto; padding:0 16px; }
 
-.site-header{
-  position:sticky;
-  top:0;
-  backdrop-filter:saturate(180%) blur(8px);
-  background:rgba(14,15,18,0.6);
+/* Header */
+.site-header {
+  position:sticky; top:0;
+  background:rgba(14,15,18,0.9);
   border-bottom:1px solid #1f222a;
   z-index:20;
 }
-.site-header .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:64px;
+.site-header .container {
+  display:flex; flex-direction:column; align-items:flex-start;
+  padding:12px;
 }
-.brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--text)}
-.brand-logo{width:28px;height:28px}
-.brand-name{font-weight:800;letter-spacing:.2px}
+.brand { display:flex; gap:8px; align-items:center; text-decoration:none; color:var(--text); }
+.brand-logo { width:28px; height:28px; }
+.nav { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.nav a { color:var(--muted); text-decoration:none; font-weight:600; }
+.nav .cta { background:var(--primary); color:#fff; padding:8px 12px; border-radius:8px; }
 
-.nav a{
-  margin-left:20px;
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:600;
-}
-.nav .cta{
-  color:#fff;
-  background:var(--primary);
-  padding:10px 16px;
-  border-radius:10px;
-  box-shadow:0 8px 20px var(--ring);
-}
+/* Hero */
+.hero { padding:40px 0 20px; }
+.hero-grid { display:flex; flex-direction:column; gap:24px; align-items:center; text-align:center; }
+.phone-body { width:220px; height:440px; border-radius:32px; background:#111318; padding:16px; }
+.phone-screen { width:100%; height:100%; object-fit:cover; border-radius:20px; }
+.hero-copy .title { font-size:32px; margin:0 0 8px; font-weight:800; }
+.hero-copy .subtitle { font-size:18px; color:var(--muted); margin:0 0 16px; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.btn { padding:10px 14px; border-radius:8px; font-weight:700; text-decoration:none; }
+.btn.primary { background:var(--primary); color:#fff; }
+.btn.ghost { border:1px solid #2a2f3a; color:#dfe6fb; }
 
-.hero{
-  padding:60px 0 40px;
-  position:relative;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-.phone{
-  display:flex;
-  justify-content:center;
-}
-.phone-body{
-  width:360px;
-  height:720px;
-  border-radius:42px;
-  background:linear-gradient(180deg,#1a1d24,#111318);
-  box-shadow:0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 10px #0a0b0d, inset 0 0 0 22px #000;
-  position:relative;
-  padding:22px;
-}
-.phone-screen{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:28px;
-  box-shadow:inset 0 0 0 1px #1e2128;
-}
-.hero-copy .title{
-  font-size:56px;
-  line-height:1.05;
-  margin:0 0 8px;
-  font-weight:800;
-}
-.hero-copy .subtitle{
-  font-size:22px;
-  color:var(--muted);
-  margin:0 0 22px;
-}
-.hero-points{
-  list-style:none;
-  padding:0;
-  margin:0 0 24px;
-}
-.hero-points li{margin:8px 0;color:#cfd6ea}
-.hero-actions{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none
-}
-.btn.primary{background:var(--primary);color:#fff;box-shadow:0 10px 22px var(--ring)}
-.btn.ghost{border:1px solid #2a2f3a;color:#dfe6fb;background:transparent}
+/* Banner */
+.hero-banner { margin-top:20px; display:flex; justify-content:center; }
+.hero-banner span { background:var(--accent); color:#07210f; padding:8px 14px; border-radius:999px; font-weight:700; }
 
-.hero-banner{
-  margin-top:34px;
-  display:flex;justify-content:center;
-}
-.hero-banner span{
-  display:inline-block;
-  background:var(--accent);
-  color:#07210f;
-  padding:10px 18px;
-  font-weight:800;
-  border-radius:999px;
-  letter-spacing:.8px;
-}
+/* Features */
+.features { padding:40px 0; }
+.feature-grid { display:flex; flex-direction:column; gap:16px; }
+.card { background:var(--panel); border:1px solid #1f232c; border-radius:12px; padding:16px; }
+.card-icon { font-size:24px; }
+.card h3 { margin:8px 0; font-size:18px; }
+.card p { color:var(--muted); margin:0; }
 
-.features{padding:72px 0}
-.features h2{font-size:32px;margin:0 0 22px}
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.card{
-  background:var(--panel);
-  border:1px solid #1f232c;
-  border-radius:16px;
-  padding:22px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.25);
-}
-.card-icon{font-size:28px}
-.card h3{margin:10px 0;font-size:20px}
-.card p{color:var(--muted);margin:0}
+/* Team */
+.team { padding:40px 0; border-top:1px solid #1f222a; }
+.team-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; padding:0; list-style:none; }
+.team-list li { background:#171a21; border:1px solid #202532; border-radius:8px; padding:6px 10px; }
 
-.team{padding:60px 0;border-top:1px solid #1f222a}
-.team h2{margin:0 0 8px}
-.team-intro{color:var(--muted)}
-.team-list{
-  display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0;padding:0;list-style:none
-}
-.team-list li{
-  background:#171a21;border:1px solid #202532;border-radius:10px;padding:8px 12px
-}
+/* Download */
+.download { padding:40px 0; border-top:1px solid #1f222a; }
+.store-badges { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.store-badges img { height:40px; }
 
-.download{padding:60px 0;border-top:1px solid #1f222a}
-.download h2{margin:0 0 8px}
-.subscribe{
-  display:flex;gap:10px;margin:14px 0 24px;flex-wrap:wrap
-}
-.subscribe input{
-  flex:1;padding:12px 14px;border-radius:10px;border:1px solid #2a2f3a;background:#0f1116;color:#fff;min-width:200px
-}
-.subscribe button{border:0;cursor:pointer}
-.store-badges{
-  display:flex;gap:12px;flex-wrap:wrap;align-items:center
-}
-.store-badges img{height:44px;filter:grayscale(20%)}
+/* Footer */
+.site-footer { padding:20px 0; border-top:1px solid #1f222a; color:var(--muted); }
+.site-footer .container { display:flex; flex-direction:column; gap:8px; align-items:center; }
 
-.site-footer{
-  padding:28px 0;border-top:1px solid #1f222a;color:var(--muted)
-}
-.site-footer .container{
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap
-}
-.footer-brand{display:flex;gap:10px;align-items:center;color:#cfd6ea}
-.footer-links a{color:var(--muted);text-decoration:none;margin-left:12px}
-
-/* -------------------- Responsive Fixes -------------------- */
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:28px;text-align:center}
-  .hero-copy .title{font-size:42px}
-  .hero-copy .subtitle{font-size:18px}
-  .phone-body{width:260px;height:520px}
-  .feature-grid{grid-template-columns:1fr}
-}
-
-@media (max-width:600px){
-  .site-header .container{flex-direction:column;align-items:flex-start;height:auto;padding:12px}
-  .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px}
-  .nav a{margin-left:0}
-  .hero{padding:40px 0 20px}
-  .features,.team,.download{padding:40px 0}
-  .hero-copy .title{font-size:32px}
-  .hero-copy .subtitle{font-size:16px}
-  .phone-body{width:200px;height:400px}
+/* -------------------- Desktop Enhancements -------------------- */
+@media (min-width:768px) {
+  .site-header .container { flex-direction:row; align-items:center; justify-content:space-between; }
+  .nav { flex-direction:row; margin-top:0; }
+  .hero-grid { flex-direction:row; text-align:left; }
+  .hero-copy .title { font-size:48px; }
+  .hero-copy .subtitle { font-size:22px; }
+  .phone-body { width:320px; height:640px; }
+  .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .site-footer .container { flex-direction:row; justify-content:space-between; }
 }
