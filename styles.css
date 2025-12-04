@@ -66,9 +66,6 @@ body{
   gap:40px;
   align-items:center;
 }
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-}
 .phone{
   display:flex;
   justify-content:center;
@@ -106,7 +103,7 @@ body{
   margin:0 0 24px;
 }
 .hero-points li{margin:8px 0;color:#cfd6ea}
-.hero-actions{display:flex;gap:12px;margin-top:10px}
+.hero-actions{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none
@@ -135,7 +132,6 @@ body{
   grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
-@media (max-width:900px){.feature-grid{grid-template-columns:1fr}}
 .card{
   background:var(--panel);
   border:1px solid #1f232c;
@@ -160,10 +156,10 @@ body{
 .download{padding:60px 0;border-top:1px solid #1f222a}
 .download h2{margin:0 0 8px}
 .subscribe{
-  display:flex;gap:10px;margin:14px 0 24px
+  display:flex;gap:10px;margin:14px 0 24px;flex-wrap:wrap
 }
 .subscribe input{
-  flex:1;padding:12px 14px;border-radius:10px;border:1px solid #2a2f3a;background:#0f1116;color:#fff
+  flex:1;padding:12px 14px;border-radius:10px;border:1px solid #2a2f3a;background:#0f1116;color:#fff;min-width:200px
 }
 .subscribe button{border:0;cursor:pointer}
 .store-badges{
@@ -175,7 +171,27 @@ body{
   padding:28px 0;border-top:1px solid #1f222a;color:var(--muted)
 }
 .site-footer .container{
-  display:flex;align-items:center;justify-content:space-between
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap
 }
 .footer-brand{display:flex;gap:10px;align-items:center;color:#cfd6ea}
 .footer-links a{color:var(--muted);text-decoration:none;margin-left:12px}
+
+/* -------------------- Responsive Fixes -------------------- */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;text-align:center}
+  .hero-copy .title{font-size:42px}
+  .hero-copy .subtitle{font-size:18px}
+  .phone-body{width:260px;height:520px}
+  .feature-grid{grid-template-columns:1fr}
+}
+
+@media (max-width:600px){
+  .site-header .container{flex-direction:column;align-items:flex-start;height:auto;padding:12px}
+  .nav{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  .nav a{margin-left:0}
+  .hero{padding:40px 0 20px}
+  .features,.team,.download{padding:40px 0}
+  .hero-copy .title{font-size:32px}
+  .hero-copy .subtitle{font-size:16px}
+  .phone-body{width:200px;height:400px}
+}
